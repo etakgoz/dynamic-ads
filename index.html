@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ad Test</title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/postscribe/dist/postscribe.min.js"></script>
+    <style>body {font-family: Arial, sans-serif;} button {font-size: 20px; padding: 10px; background: #FCFCFD; margin-bottom: 10px;}</style>
+  </head>
+  <body>
+		<div><button id="google-ad-button">Click to add a google ad</button></div>
+		<div><button id="ic-ad-button">Click to add a investing channel ad</button></div>
+
+		<article>
+			<h1>Ads</h1>
+			<h2>Google Ad</h2>
+			<div id="google-ad"></div>
+			<hr>
+			<h2>Investing Channel Ads</h2>
+			<div id="ic-ad"></div>
+		</article>
+    <!-- page content -->
+    	<script type="text/javascript">
+    		$(function() {
+    			var googleAdSrc = '<script async src="\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js"><\/script>' +
+                            	  '<ins class="adsbygoogle"' +
+                                 'style="display:inline-block;width:300px;height:250px;margin-right:10px;margin-bottom:10px"' +
+                                 'data-ad-client="ca-pub-4811283071987061"' +
+                                 'data-ad-slot="5400386614"><\/ins>' +
+                            	'<script>' +
+                               '(adsbygoogle = window.adsbygoogle || []).push({});' +
+                               '<\/script>';
+
+                var imAdSrc = "<script src='http://ads.investingchannel.com\/adtags\/insidermonkey\/home\/300x250.js' type='text\/javascript' charset='utf-8'><\/script>";
+
+    			$("#google-ad-button").on("click", function (){
+					postscribe('#google-ad', googleAdSrc);
+    			});
+
+    			$("#ic-ad-button").on("click", function () {
+    				postscribe('#ic-ad', imAdSrc);
+    			});
+    		});
+    	</script>
+  </body>
+</html>
